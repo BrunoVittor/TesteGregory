@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Estoque de carros{% endblock %}
+
+{% block main %}
+<h2>Lista de carros disponíveis</h2>
+<p>{% for carro in carros %}</p>
+    <a href="{% url 'alterar_carros' carro.id %}">{{ carro.marca }}</a>
+        {{ carro.modelo }}
+        {{ carro.ano }}
+        {{ carro.cor }}
+        {{ carro.placa }}
+        <a href="{% url 'deletar_carros' carro.id %}">Deletar</a>
+    {% endfor %}
+<p><a href="{% url 'novos_carros' %}">Carros novos</a></p>
+{% endblock %}
+
